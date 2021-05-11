@@ -37,6 +37,7 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QLabel *label;
     QComboBox *comboBox;
+    QPushButton *pushButton;
     QTableView *fighterTable;
     QGridLayout *gridLayout_2;
     QVBoxLayout *verticalLayout_4;
@@ -113,6 +114,13 @@ public:
         comboBox->setFont(font1);
 
         verticalLayout_2->addWidget(comboBox, 0, Qt::AlignHCenter);
+
+        pushButton = new QPushButton(gridLayoutWidget);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setMinimumSize(QSize(100, 20));
+        pushButton->setMaximumSize(QSize(100, 16777215));
+
+        verticalLayout_2->addWidget(pushButton, 0, Qt::AlignHCenter);
 
         fighterTable = new QTableView(gridLayoutWidget);
         fighterTable->setObjectName(QString::fromUtf8("fighterTable"));
@@ -230,6 +238,7 @@ public:
         comboBox->setItemText(7, QCoreApplication::translate("Home", "Cruiserweight", nullptr));
         comboBox->setItemText(8, QCoreApplication::translate("Home", "Heavyweight", nullptr));
 
+        pushButton->setText(QCoreApplication::translate("Home", "Change", nullptr));
         advanceBtn->setText(QCoreApplication::translate("Home", "Advance", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("Home", "Help", nullptr));
     } // retranslateUi

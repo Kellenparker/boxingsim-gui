@@ -11,7 +11,7 @@ const int size = 9;
 
 int retirements[9];
 
-static const int NUMFIGHTERS = 10;
+static const int NUMFIGHTERS = 100;
 
 std::vector<FightCard> FightCardVec;
 

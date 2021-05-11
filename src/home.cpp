@@ -6,11 +6,18 @@ Home::Home(QWidget *parent, Roster *rost)
     , ui(new Ui::Home)
 {
     ui->setupUi(this);
-    static const int columns = 5;
-    static const int rows = 10;
-    model = new QStandardItemModel(rows,columns,this);
+    model = new QStandardItemModel(ROWS,COLUMNS,this);
 
-    weightClass = 0;
+    roster = rost;
+
+    weightClass = ui->comboBox->currentIndex();
+    connect(ui->comboBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
+        [=](int index){
+
+        weightClass = index;
+        generateTable();
+
+    });
 
     // Attach the model to the view
     ui->fighterTable->setModel(model);
@@ -21,17 +28,17 @@ Home::Home(QWidget *parent, Roster *rost)
     model->setHeaderData(2, Qt::Horizontal, QObject::tr("Weight Class"));
     model->setHeaderData(3, Qt::Horizontal, QObject::tr("Overall"));
     model->setHeaderData(4, Qt::Horizontal, QObject::tr("Next Fight"));
-    generateTable(rows, columns, rost);
+    generateTable();
 }
 
-void Home::generateTable(int maxRows, int maxCols, Roster *rost)
+void Home::generateTable()
 {
 
     // Generate data
-    for(int row = 0; row < maxRows; row++)
+    for(int row = 0; row < ROWS; row++)
     {
-        Fighter *current = rost->getFighter(weightClass,row);
-        for(int col = 0; col < maxCols; col++)
+        Fighter *current = roster->getFighter(weightClass,row);
+        for(int col = 0; col < COLUMNS; col++)
         {
             QModelIndex index = model->index(row,col,QModelIndex());
             if (col == 0)
