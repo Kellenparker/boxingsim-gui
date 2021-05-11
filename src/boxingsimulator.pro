@@ -17,10 +17,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     main.cpp \
-    home.cpp
+    home.cpp \
+    Fighter.cpp \
+    FightCard.cpp \
+    Roster.cpp \
+    RNG.cpp \
+    time.cpp
 
 HEADERS += \
-    home.h
+    home.h \
+    Fighter.h \
+    FightCard.h \
+    Roster.h \
+    RNG.h \
+    time.h
 
 FORMS += \
     home.ui
