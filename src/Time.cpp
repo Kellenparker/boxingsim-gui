@@ -1,13 +1,13 @@
-#include "time.h"
+#include "Time.h"
 
-time::time(int startYear)
+Time::Time(int startYear)
 {
-    time::month = 0;
-    time::year = startYear;
-    time::elapsed_time = 0;
+    Time::month = 0;
+    Time::year = startYear;
+    Time::elapsed_time = 0;
 }
 
-void time::advance(){
+void Time::advance(){
 
     if (month < 11) month++;
     else {
@@ -18,7 +18,7 @@ void time::advance(){
 
 }
 
-const char* time::getMonthString(){
+const char* Time::getMonthString(){
 
     static const char* monthNames[] = { "January", "February", "March", "April",
                                         "May", "June", "July", "August", "September",

@@ -732,6 +732,16 @@ bool Fighter::GetChamp()
 	return Fighter::isChamp;
 }
 
+std::string Fighter::GetRecord()
+{
+    std::string record = std::to_string(wins);
+    record += "-";
+    record += std::to_string(losses);
+    record += "-";
+    record += std::to_string(draws);
+    return record;
+}
+
 bool Fighter::GetProspect()
 {
 	return (Fighter::peakStart - Fighter::age) >= 2;

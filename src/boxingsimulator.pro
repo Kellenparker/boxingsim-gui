@@ -16,21 +16,21 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Time.cpp \
     main.cpp \
     home.cpp \
     Fighter.cpp \
     FightCard.cpp \
     Roster.cpp \
-    RNG.cpp \
-    time.cpp
+    RNG.cpp
 
 HEADERS += \
+    Time.h \
     home.h \
     Fighter.h \
     FightCard.h \
     Roster.h \
-    RNG.h \
-    time.h
+    RNG.h
 
 FORMS += \
     home.ui

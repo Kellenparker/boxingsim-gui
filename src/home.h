@@ -6,8 +6,10 @@
 #include <QItemDelegate>
 #include <QStandardItemModel>
 #include <QComboBox>
+#include <QPushButton>
+#include <QLabel>
 #include "Roster.h"
-#include "time.h"
+#include "Time.h"
 #include "Fighter.h"
 #include <vector>
 
@@ -25,13 +27,15 @@ private:
     void generateTable();
 
 public:
-    Home(QWidget *parent = nullptr, Roster *rost = nullptr);
+    Home(QWidget *parent = nullptr, Roster *rost = nullptr, Time *time = nullptr);
+    void advanceTime();
     ~Home();
 
 private:
     Ui::Home *ui;
     QStandardItemModel *model;
     Roster *roster;
+    Time *timeptr;
     int weightClass;
 
 };

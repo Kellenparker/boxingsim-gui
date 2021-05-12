@@ -146,6 +146,8 @@ public:
 	// GetChamp: Returns true if fighter is a champion
     bool GetChamp();
 
+    std::string GetRecord();
+
 	// SetChamp: Sets the fighters champ status
 	void SetChamp(bool b);
 

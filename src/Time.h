@@ -1,13 +1,13 @@
 #ifndef TIME_H
 #define TIME_H
 
-class time
+class Time
 {
     int month;
     int year;
     int elapsed_time;
 public:
-    time(int startYear);
+    Time(int startYear);
     void advance();
     int getMonth(){return month;};
     const char* getMonthString();
