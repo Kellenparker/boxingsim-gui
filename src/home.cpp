@@ -11,13 +11,10 @@ Home::Home(QWidget *parent, Roster *rost, Time *time)
     roster = rost;
     timeptr = time;
 
-    connect(ui->advanceBtn, &QPushButton::clicked, [=]() {
-
-        std::cout << "time keeps moving";
-        timeptr->advance();
-        generateTable();
-
-    });
+    std::string month = timeptr->getMonthString();
+    std::string year = std::to_string(timeptr->getYear());
+    std::string labeltxt = month + " " + year;
+    ui->label_2->setText(QObject::tr(labeltxt.c_str()));
 
     weightClass = ui->comboBox->currentIndex();
     connect(ui->comboBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
@@ -63,15 +60,19 @@ void Home::generateTable()
     }
 }
 
-void Home::advanceTime()
-{
-    std::cout << "time keeps moving";
-    timeptr->advance();
-    generateTable();
-}
-
 Home::~Home()
 {
     delete ui;
+}
+
+
+void Home::on_advanceBtn_clicked()
+{
+    timeptr->advance(roster);
+    std::string month = timeptr->getMonthString();
+    std::string year = std::to_string(timeptr->getYear());
+    std::string labeltxt = month + " " + year;
+    ui->label_2->setText(QObject::tr(labeltxt.c_str()));
+    generateTable();
 }
 

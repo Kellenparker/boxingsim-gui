@@ -24,6 +24,7 @@ void FightCard::AddFight(Fighter* fighter1, Fighter* fighter2)
 		std::cout << std::endl << std::endl << std::endl << std::endl << "no";
 	}
 
+    /*
 	std::cout << "Time Until Fight: " << 0 << " months." << std::endl;
 
 	std::cout << "Fighter 1: ";
@@ -33,6 +34,7 @@ void FightCard::AddFight(Fighter* fighter1, Fighter* fighter2)
 	fighter2->vPrint();
 
 	std::cout << "-------------------------------------------------" << std::endl;
+    */
 
 	if (currentSize == 0) {
 		fightList[0][0] = fighter1;
@@ -175,6 +177,9 @@ FightCard::fightSt FightCard::RunFight(Fighter* f1, Fighter* f2)
 
 	newfight.weight = f1->GetWeight();
 
+    float prob = f1->overall * (1.0 / (f1->overall + f2->overall));
+
+    /*
 	std::cout << "Fight!!!" << std::endl;
 
 	if (f1->GetChamp()) std::cout << "CHAMPION: ";
@@ -185,11 +190,10 @@ FightCard::fightSt FightCard::RunFight(Fighter* f1, Fighter* f2)
 	if (f2->GetChamp()) std::cout << "CHAMPION: ";
 	std::cout << "f2: ";
 	f2->GetName();
-	std::cout << "ovr: " << f2->overall << std::endl;
-
-	float prob = f1->overall * (1.0 / (f1->overall + f2->overall));
+    std::cout << "ovr: " << f2->overall << std::endl;
 
 	std::cout << "should be <= " << prob + .1 << std::endl;
+    */
 
 	int f1dam, f2dam;
 
@@ -208,7 +212,7 @@ FightCard::fightSt FightCard::RunFight(Fighter* f1, Fighter* f2)
 		f2dam = rng::randd(25.0, 100.0, false);
 		f2->AddDamage(f2dam);
 
-		std::cout << "Damage: winner: " << f1dam << " loser: " << f2dam << std::endl;
+        //std::cout << "Damage: winner: " << f1dam << " loser: " << f2dam << std::endl;
 	}
 	else {
 		f2->GetName();
@@ -225,7 +229,7 @@ FightCard::fightSt FightCard::RunFight(Fighter* f1, Fighter* f2)
 		f1dam = rng::randd(25.0, 100.0, false);
 		f1->AddDamage(f1dam);
 
-		std::cout << "Damage: winner: " << f2dam << " loser: " << f1dam << std::endl;
+        //std::cout << "Damage: winner: " << f2dam << " loser: " << f1dam << std::endl;
 	}
 
 	f1->SetHasFight(false);

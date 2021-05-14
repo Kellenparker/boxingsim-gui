@@ -90,10 +90,10 @@ void Roster::Progress()
 	FightFinder();
 
 	//Print Card --for debugging
-	for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 10; i++) {
 		std::cout << "index = " << i << std::endl;
 		FightCardVec[i].PrintCard();
-	}
+    }
 
 	//Fight Card
 	//Make sure it isn't the first month

@@ -7,10 +7,13 @@ Time::Time(int startYear)
     Time::elapsed_time = 0;
 }
 
-void Time::advance(){
+void Time::advance(Roster *rost){
 
-    if (month < 11) month++;
+    rost->Progress();
+
+    if (month < 11)  month++;
     else {
+        rost->IncrementAge();
         month = 0;
         year++;
     }
@@ -18,7 +21,7 @@ void Time::advance(){
 
 }
 
-const char* Time::getMonthString(){
+std::string Time::getMonthString(){
 
     static const char* monthNames[] = { "January", "February", "March", "April",
                                         "May", "June", "July", "August", "September",

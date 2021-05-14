@@ -28,7 +28,6 @@ private:
 
 public:
     Home(QWidget *parent = nullptr, Roster *rost = nullptr, Time *time = nullptr);
-    void advanceTime();
     ~Home();
 
 private:
@@ -37,6 +36,11 @@ private:
     Roster *roster;
     Time *timeptr;
     int weightClass;
+
+private slots:
+    void on_advanceBtn_clicked();
+
+signals:
 
 };
 #endif // HOME_H
